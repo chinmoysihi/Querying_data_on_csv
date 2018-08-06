@@ -1,0 +1,21 @@
+package com.fragma.data;
+
+public class Deliveries {
+	
+	private String MATCH_ID;
+	private String INNING;
+	private String BATTING_TEAM;
+	private String BOWLING_TEAM;
+	private String OVER;
+	private String BALL;
+	private String BATSMAN;
+	private String BOWLER;
+	private String WIDE_RUNS;
+	private String BYE_RUNS;
+	private String LEGBYE_RUNS;
+	private String NOBALL_RUNS;
+	private String PENALTY_RUNS;
+	private String BATSMAN_RUNS;
+	private String EXTRA_RUNS;
+	private String TOTAL_RUNS;
+}

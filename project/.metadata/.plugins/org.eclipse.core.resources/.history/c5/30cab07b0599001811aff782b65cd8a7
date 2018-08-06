@@ -1,0 +1,10 @@
+package com.fragma.data;
+
+import java.util.*;
+
+public class TeamNetRunRate {
+	
+	public static void netRunRate(ArrayList<Deliveries> darr,ArrayList<Matches> marr) {
+		
+	}
+}

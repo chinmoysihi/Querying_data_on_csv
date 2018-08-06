@@ -1,0 +1,9 @@
+package com.fragma.data;
+
+import com.opencsv.*;
+
+public class ReadData {
+	
+	private static final String CSV_deliveries= "C:\\Users\\kassy\\Desktop\\iplDataSet\\deliveries.csv";
+	private static final String CSV_matches= "C:\\Users\\kassy\\Desktop\\iplDataSet\\matches.csv";
+}

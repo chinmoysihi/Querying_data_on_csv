@@ -1,0 +1,26 @@
+package com.fragma.data;
+
+import java.util.*;
+
+public class Top4TeamsFieldFirst {
+	
+	public static void fieldFirst(ArrayList<Matches> marr) {
+		
+		Map<String,Integer> map= new HashMap();
+		for(Matches m:marr) {
+			if(m.getSEASON()=="2016" || m.getSEASON()=="2017") {
+				System.out.println("def");				
+				if(m.getTOSS_DECISION()=="field") {
+					String key=m.getTOSS_WINNER()+","+m.getSEASON();
+					if(!map.containsKey(key)) {
+						map.put(key, 0);
+					}else {
+						int val=map.get(key)+1;
+						map.put(key, val);
+					}
+				}
+			}
+		}
+		System.out.println(map);
+	}
+}

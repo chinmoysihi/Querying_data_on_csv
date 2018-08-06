@@ -1,0 +1,26 @@
+package com.fragma.data;
+
+import java.util.*;
+
+public class Lab1 {
+
+	private static final String CSV_deliveries= "C:\\Users\\kassy\\Desktop\\iplDataSet\\deliveries.csv";
+	private static final String CSV_matches= "C:\\Users\\kassy\\Desktop\\iplDataSet\\matches.csv";
+	static ArrayList darr=null;
+	static ArrayList marr=null;
+	
+	public static void main(String[] args) {
+		
+		darr=ReadDeliveries.readDataLineByLine(CSV_deliveries);
+        System.out.println(" Deliveries Completed");
+        System.out.println(darr.get(0));
+        System.out.println(darr.get(darr.size()-1));
+        
+        System.out.println();
+        marr=ReadMatches.readDataLineByLine(CSV_matches);
+        System.out.println(" Matches Completed");
+        System.out.println(marr.get(0));
+        System.out.println(marr.get(marr.size()-1));
+	}
+
+}

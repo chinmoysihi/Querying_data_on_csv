@@ -1,0 +1,43 @@
+package com.fragma.data;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.List;
+
+//import com.opencsv.*;
+
+public class ReadData {
+	
+	private static final String CSV_deliveries= "C:\\Users\\kassy\\Desktop\\iplDataSet\\deliveries.csv";
+	private static final String CSV_matches= "C:\\Users\\kassy\\Desktop\\iplDataSet\\matches.csv";
+	
+	public static void main(String[] args) {
+        readDataLineByLine(CSV_deliveries);
+	}
+	
+	public static void readDataLineByLine(String csvFileInput)
+    {
+		try {
+			int i=0;
+			Reader in = new FileReader( csvFileInput );
+	        CSVParser parser = new CSVParser( in, CSVFormat.DEFAULT );
+	        List<CSVRecord> list = parser.getRecords();
+	        for( CSVRecord row : list ) {
+	        	System.out.print(i+" ");
+	        	for( String entry : row ) {
+	        		System.out.print(entry +" " );
+	        	}
+	        	i++;
+	                System.out.println();
+	        }
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	        
+    }
+}

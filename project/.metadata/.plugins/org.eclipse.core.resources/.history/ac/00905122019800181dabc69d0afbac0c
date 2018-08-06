@@ -1,0 +1,13 @@
+package com.fragma.data;
+
+import java.util.*;
+
+public class Top4TeamsFieldFirst {
+	
+	public static void fieldFirst(ArrayList<Matches> marr) {
+		
+		for(Matches m:marr) {
+			
+		}
+	}
+}

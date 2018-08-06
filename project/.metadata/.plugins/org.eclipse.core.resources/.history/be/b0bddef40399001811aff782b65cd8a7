@@ -1,0 +1,30 @@
+package com.fragma.data;
+
+import java.util.*;
+
+public class Lab1 {
+
+	private static final String CSV_deliveries= "C:\\Users\\kassy\\Desktop\\iplDataSet\\deliveries.csv";
+	private static final String CSV_matches= "C:\\Users\\kassy\\Desktop\\iplDataSet\\matches.csv";
+	static ArrayList darr=null;
+	static ArrayList marr=null;
+	
+	public static void main(String[] args) {
+		
+		darr=ReadDeliveries.readDataLineByLine(CSV_deliveries);
+        System.out.println(" Deliveries Completed");
+       
+        marr=ReadMatches.readDataLineByLine(CSV_matches);
+        System.out.println(" Matches Completed");
+        
+        System.out.println();
+        /*Top4TeamsFieldFirst.fieldFirst(marr);
+        System.out.println();
+        TotalFourSixScore.score(darr, marr);
+        System.out.println();        
+        TopTenEconomy.economy(darr, marr);*/
+        
+        
+	}
+
+}

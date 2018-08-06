@@ -1,0 +1,79 @@
+package com.fragma.data;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.*;
+
+//import com.opencsv.*;
+
+public class ReadData {
+	
+	private static final String CSV_deliveries= "C:\\Users\\kassy\\Desktop\\iplDataSet\\deliveries.csv";
+	private static final String CSV_matches= "C:\\Users\\kassy\\Desktop\\iplDataSet\\matches.csv";
+	
+	ArrayList<Deliveries> darr= new ArrayList<>();
+	
+	public static void main(String[] args) {
+        readDataLineByLine(CSV_deliveries);
+        System.out.println("Completed");
+	}
+	
+	public static void readDataLineByLine(String csvFileInput)
+    {
+		try {
+			Reader in = new FileReader( csvFileInput );
+	        CSVParser parser = new CSVParser( in, CSVFormat.DEFAULT );
+	        List<CSVRecord> list = parser.getRecords();
+	        for( CSVRecord row : list ) {
+	        	int i=0;
+	        	for( String entry : row ) {
+	        		//System.out.print(entry +" " );
+	        		i++;
+	        		Deliveries d= new Deliveries();
+	        		if(i==1)
+	        			d.setMATCH_ID(entry);
+	        		else if(i==2)
+	        			d.setINNING(entry);
+	        		else if(i==3)
+	        			d.setBATTING_TEAM(entry);
+	        		else if(i==4)
+	        			d.setBOWLING_TEAM(entry);
+	        		else if(i==5)
+	        			d.setOVER(entry);
+	        		else if(i==6)
+	        			d.setBALL(entry);
+	        		else if(i==7)
+	        			d.setBATSMAN(entry);
+	        		else if(i==8)
+	        			d.setBOWLER(entry);
+	        		else if(i==9)
+	        			d.setWIDE_RUNS(entry);
+	        		else if(i==10)
+	        			d.setBYE_RUNS(entry);
+	        		else if(i==11)
+	        			d.setLEGBYE_RUNS(entry);
+	        		else if(i==12)
+	        			d.setNOBALL_RUNS(entry);
+	        		else if(i==13)
+	        			d.setPENALTY_RUNS(entry);
+	        		else if(i==14)
+	        			d.setBATSMAN_RUNS(entry);
+	        		else if(i==15)
+	        			d.setEXTRA_RUNS(entry);
+	        		else if(i==16)
+	        			d.setTOTAL_RUNS(entry);
+	        		darr.add(d);
+	        	}
+	                //System.out.println();
+	        }
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	        
+    }
+}

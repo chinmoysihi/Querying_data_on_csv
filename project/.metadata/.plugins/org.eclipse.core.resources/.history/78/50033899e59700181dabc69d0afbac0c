@@ -1,0 +1,102 @@
+package com.fragma.data;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.*;
+
+//import com.opencsv.*;
+
+public class ReadData {
+	
+	private static final String CSV_deliveries= "C:\\Users\\kassy\\Desktop\\iplDataSet\\deliveries.csv";
+	private static final String CSV_matches= "C:\\Users\\kassy\\Desktop\\iplDataSet\\matches.csv";
+	
+	public static ArrayList<Deliveries> darr= new ArrayList<>();
+	
+	public static void main(String[] args) {
+        readDataLineByLine(CSV_deliveries);
+        System.out.println("Completed");
+        System.out.println(darr.get(0));
+        //System.out.println(darr.get(darr.size()-1));
+	}
+	
+	public static void readDataLineByLine(String csvFileInput)
+    {
+		int i=0,j=0;
+		Deliveries d=null;
+		String MATCH_ID;
+		String INNING;
+		String BATTING_TEAM;
+		String BOWLING_TEAM;
+		String OVER;
+		String BALL;
+		String BATSMAN;
+		String BOWLER;
+		String WIDE_RUNS;
+		String BYE_RUNS;
+		String LEGBYE_RUNS;
+		String NOBALL_RUNS;
+		String PENALTY_RUNS;
+		String BATSMAN_RUNS;
+		String EXTRA_RUNS;
+		String TOTAL_RUNS;
+		try {
+			Reader in = new FileReader( csvFileInput );
+	        CSVParser parser = new CSVParser( in, CSVFormat.DEFAULT );
+	        List<CSVRecord> list = parser.getRecords();
+	        for( CSVRecord row : list ) {
+	        	if(j>0) {
+	        		for( String entry : row ) {
+		        		//System.out.print(entry +" " );
+		        		i++;
+		        		//d= new Deliveries();
+		        		if(i==1) 
+		        			MATCH_ID=entry;
+		        		else if(i==2) 
+		        			INNING=entry;
+		        		else if(i==3)
+		        			BATTING_TEAM=entry;
+		        		else if(i==4)
+		        			BOWLING_TEAM=entry;
+		        		else if(i==5)
+		        			OVER=entry;
+		        		else if(i==6)
+		        			BALL=entry;
+		        		else if(i==7)
+		        			BATSMAN=entry;
+		        		else if(i==8)
+		        			BOWLER=entry;
+		        		else if(i==9)
+		        			WIDE_RUNS=entry;
+		        		else if(i==10)
+		        			BYE_RUNS=entry;
+		        		else if(i==11)
+		        			LEGBYE_RUNS=entry;
+		        		else if(i==12)
+		        			NOBALL_RUNS=entry;
+		        		else if(i==13)
+		        			PENALTY_RUNS=entry;
+		        		else if(i==14)
+		        			BATSMAN_RUNS=entry;
+		        		else if(i==15)
+		        			EXTRA_RUNS=entry;
+		        		else if(i==16)
+		        			TOTAL_RUNS=entry;
+		        	}
+	        		darr.add(d);
+	        	}
+	        	i=0;
+	        	j++;
+	                System.out.println();
+	        }
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	        
+    }
+}

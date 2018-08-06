@@ -1,0 +1,65 @@
+package com.fragma.data;
+
+import java.util.*;
+import java.util.Map.Entry;
+
+public class TeamNetRunRate {
+	
+	public static void netRunRate(ArrayList<Deliveries> darr,ArrayList<Matches> marr) {
+		
+		LinkedHashMap<String,String> map= new LinkedHashMap<>();
+		int batrun=0 , batovr=0 , botrun=0 , botovr=0;
+		
+		for(Matches m : marr) {
+			map.put(m.getMATCH_ID()	, m.getSEASON());
+		}
+		
+		LinkedHashMap<String,String> batmap= new LinkedHashMap<>();
+		LinkedHashMap<String,String> bomap=new LinkedHashMap<>();
+		Set<Entry<String,String>> set= map.entrySet();
+		for(Entry<String,String> entry:set) {
+			int bamovr=0 , bomovr=0;
+			for(Deliveries d:darr) {
+				if(entry.getKey().equals(d.getMATCH_ID())) {
+					String key1= entry.getValue() +","+ d.getBATTING_TEAM();
+					String key2= entry.getValue() +","+ d.getBOWLING_TEAM();
+					String val="";
+					if(!batmap.containsKey(key1)) {
+						batrun=Integer.parseInt(d.getTOTAL_RUNS());
+						batovr=1;
+						bamovr=1;
+						batmap.put(key1, batrun+","+batovr);
+					}else {
+						int r=Integer.parseInt(d.getTOTAL_RUNS());
+						String sarr[]= batmap.get(key1).split(",");
+						batrun= Integer.parseInt(sarr[0])+r;
+						batovr=Integer.parseInt(sarr[1]);
+						if(Integer.parseInt(d.getOVER())>bamovr) {
+							batovr++;
+							bamovr++;
+						}
+						batmap.put(key1, batrun+","+batovr);
+					}
+					if(!bomap.containsKey(key2)) {
+						botrun=Integer.parseInt(d.getTOTAL_RUNS());
+						botovr=1;
+						bomovr=1;
+						bomap.put(key2, botrun+","+botovr);
+					}else {
+						int r= Integer.parseInt(d.getTOTAL_RUNS());
+						String sarr[]= bomap.get(key2).split(",");
+						botrun=Integer.parseInt(sarr[0])+r;
+						botovr=Integer.parseInt(sarr[1]);
+						if(Integer.parseInt(d.getOVER())>bomovr) {
+							botovr++;
+							bamovr++;
+						}
+						bomap.put(key2, botrun+","+botovr);
+					}
+				}
+			}
+		}
+		System.out.println(batmap);
+		System.out.println(bomap);
+	}
+}

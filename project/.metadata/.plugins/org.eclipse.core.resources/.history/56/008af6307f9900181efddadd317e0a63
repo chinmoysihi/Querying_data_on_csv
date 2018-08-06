@@ -1,0 +1,18 @@
+package com.fragma.data;
+
+import java.util.*;
+
+public class TeamNetRunRate {
+	
+	public static void netRunRate(ArrayList<Deliveries> darr,ArrayList<Matches> marr) {
+		
+		LinkedHashMap<String,String> map= new LinkedHashMap<>();
+		int batrun=0 , batovr=0 , botrun=0 , botovr=0;
+		
+		for(Matches m : marr) {
+			map.put(m.getMATCH_ID()	, m.getSEASON());
+		}
+		
+		
+	}
+}

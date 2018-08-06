@@ -1,0 +1,76 @@
+package com.fragma.data;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.List;
+
+//import com.opencsv.*;
+
+public class ReadData {
+	
+	private static final String CSV_deliveries= "C:\\Users\\kassy\\Desktop\\iplDataSet\\deliveries.csv";
+	private static final String CSV_matches= "C:\\Users\\kassy\\Desktop\\iplDataSet\\matches.csv";
+	
+	public static void main(String[] args) {
+        readDataLineByLine(CSV_deliveries);
+        System.out.println("Completed");
+	}
+	
+	public static void readDataLineByLine(String csvFileInput)
+    {
+		try {
+			Reader in = new FileReader( csvFileInput );
+	        CSVParser parser = new CSVParser( in, CSVFormat.DEFAULT );
+	        List<CSVRecord> list = parser.getRecords();
+	        for( CSVRecord row : list ) {
+	        	int i=0;
+	        	for( String entry : row ) {
+	        		System.out.print(entry +" " );
+	        		i++;
+	        		Deliveries d= new Deliveries();
+	        		if(i==1)
+	        			d.setMATCH_ID(entry);
+	        		else if(i==2)
+	        			d.setINNING(entry);
+	        		else if(i==3)
+	        			d.setINNING(entry);
+	        		else if(i==4)
+	        			d.setINNING(entry);
+	        		else if(i==5)
+	        			d.setINNING(entry);
+	        		else if(i==6)
+	        			d.setINNING(entry);
+	        		else if(i==7)
+	        			d.setINNING(entry);
+	        		else if(i==8)
+	        			d.setINNING(entry);
+	        		else if(i==9)
+	        			d.setINNING(entry);
+	        		else if(i==10)
+	        			d.setINNING(entry);
+	        		else if(i==11)
+	        			d.setINNING(entry);
+	        		else if(i==12)
+	        			d.setINNING(entry);
+	        		else if(i==13)
+	        			d.setINNING(entry);
+	        		else if(i==14)
+	        			d.setINNING(entry);
+	        		else if(i==15)
+	        			d.setINNING(entry);
+	        		else if(i==16)
+	        			d.setINNING(entry);
+	        	}
+	                System.out.println();
+	        }
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	        
+    }
+}
